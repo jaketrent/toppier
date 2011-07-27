@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Toppier</title>
+  <link rel="stylesheet" href="media/style.css" />
+  <script src="lib/require.js" data-main="lib/main.js"></script>
+</head>
+<body>
+    <canvas id="card" height="500" width="400"></canvas>
+    <aside class="box layers">
+			<h2>LAYERS</h2>
+			<ul>
+				<li class="background">
+					<img src="media/img/skadoosh.jpg"/>
+					<h3>Background</h3>
+					<div class="visible"></div>
+				</li>
+			</ul>
+			<div class="options">
+				<span>Blending:</span>
+				<select name="blending">
+					<option value="source-over">Normal</option>
+					<option value="xor">XOR</option>
+					<option value="copy">Copy</option>
+					<option value="lighter">Lighter</option>
+				</select>
+				<span>Opacity:</span>
+				<select name="opacity">
+					<option value="1" selected="selected">100%</option>
+					<option value="0.9">90%</option>
+					<option value="0.8">80%</option>
+					<option value="0.7">70%</option>
+					<option value="0.6">60%</option>
+					<option value="0.5">50%</option>
+					<option value="0.4">40%</option>
+					<option value="0.3">30%</option>
+					<option value="0.2">20%</option>
+					<option value="0.1">10%</option>
+				</select>
+				<span>Shadow:</span>
+				<select name="shadow">
+					<option value="true">On</option>
+					<option value="false">Off</option>
+				</select>
+			</div>
+			<div class="buttons">
+				<ul>
+					<li class="remove">Remove</li>
+					<li class="up">Up</li>
+					<li class="down">Down</li>
+				</ul>
+			</div>
+		</aside>
+		<footer class="search">
+			<form action="#">
+				<input type="text" name="q" value="funny cats"/>
+				<input type="submit" value="search"/>
+			</form>
+			<ul></ul>
+		</footer>
+</body>
+</html>

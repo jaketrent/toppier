@@ -1,0 +1,107 @@
+@font-face {
+  font-family: 'HeroRegular';
+  src: url('type/hero-webfont.eot');
+  src: url('type/hero-webfont.eot?#iefix') format('embedded-opentype'),
+       url('type/hero-webfont.woff') format('woff'),
+       url('type/hero-webfont.ttf') format('truetype'),
+       url('type/hero-webfont.svg#HeroRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HeRoezRegular';
+  src: url('type/heroez-webfont.eot');
+  src: url('type/heroez-webfont.eot?#iefix') format('embedded-opentype'),
+       url('type/heroez-webfont.woff') format('woff'),
+       url('type/heroez-webfont.ttf') format('truetype'),
+       url('type/heroez-webfont.svg#HeRoezRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: arial, sans-serif;
+  color: #fff;
+  background: #45484d fixed; /* Old browsers */
+  background: -moz-linear-gradient(top, #45484d 0%, #000000 100%) fixed; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)) fixed; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%) fixed; /* Chrome10+,Safari5.1+ */
+  background: linear-gradient(top, #45484d 0%,#000000 100%) fixed; /* W3C */
+}
+
+
+#card {
+  float: left;
+}
+.box {
+  width: 400px;
+  margin: 10px;
+  float: left;
+  background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+  -moz-border-radius-topleft: 7px;
+  -moz-border-radius-topright: 7px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-radius: 7px 7px 0px 0px;
+  border-radius: 7px 7px 0px 0px;
+  }
+.box > h2  {
+  color: #fff;
+  text-shadow: 2px 2px 1px #000;
+  filter: dropshadow(color=#000, offx=2, offy=2);
+  background: #332e2e; /* Old browsers */
+  background: -moz-linear-gradient(top, #332e2e 0%, #3d3838 47%, #0a0e0a 56%, #0a0809 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#332e2e), color-stop(47%,#3d3838), color-stop(56%,#0a0e0a), color-stop(100%,#0a0809)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #332e2e 0%,#3d3838 47%,#0a0e0a 56%,#0a0809 100%); /* Chrome10+,Safari5.1+ */
+  background: linear-gradient(top, #332e2e 0%,#3d3838 47%,#0a0e0a 56%,#0a0809 100%); /* W3C */
+  font-size: 40px;
+  line-height: 50px;
+  padding:  5px 0;
+  margin: 0;
+  font-family: 'HeroRegular', Arial, sans-serif;
+  -moz-border-radius-topleft: 7px;
+  -moz-border-radius-topright: 7px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-radius: 7px 7px 0px 0px;
+  border-radius: 7px 7px 0px 0px;
+  text-align: center;
+  border: 2px solid #000;
+  letter-spacing: 6px;
+}
+
+
+
+
+#card {
+  border: 1px solid #ababab;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  border: 10px solid #dfe5d7;
+}
+.layers > ul {
+  list-style: none;
+}
+.layers > ul li {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.layers > ul li {
+
+}
+.layers > ul li img {
+  height: 50px;
+  width: 50px;
+  float: left;
+  margin-left: 10px;
+}
+.layers .visible {
+  display: block;
+  height: 15px;
+  width: 15px;
+  background: #fff;
+}
