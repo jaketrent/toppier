@@ -117,30 +117,36 @@ require(["jquery", "jcollage"], function ($, jc) {
       }
     });
 
-    $(".remove").click(function() {
-      if (getSelectedLayer() != null) {
-        jCollage.removeLayer($(".layers .selected").attr("id").substr(6));
+    function showLayerCtrls() {
+      $(this).append('<ul class="layer-ctrls"><li class="remove"><a>Rm</a></li><li class="arrow-alt up"><a>Up</a></li><li class="down"></a>Down</a></li></ul>')
+    }
+
+    function rmLayerCtrls() {
+//      $(this).find(".layer-ctrls").remove();
+    }
+
+    $(".layers .layer").live("mouseenter", showLayerCtrls);
+    $(".layers .layer").live("mouseleave", rmLayerCtrls);
+
+    $(".remove a").live("click", function() {
+      var id = $(this).parent().parent().attr("id").substr(6);
+      jCollage.removeLayer(id);
+      updateLayers(jCollage.getLayers());
+    });
+
+    $(".up a").live("click", function() {
+      var id = $(this).parent().parent().attr("id").substr(6);
+      if (jCollage.moveLayerUp(id)) {
         updateLayers(jCollage.getLayers());
+        $("#layer_" + (parseInt(id) + 1)).addClass("selected");
       }
     });
 
-    $(".up").click(function() {
-      if (getSelectedLayer() != null) {
-        var selectedLayer = $(".layers .selected").attr("id").substr(6);
-        if (jCollage.moveLayerUp(selectedLayer)) {
-          updateLayers(jCollage.getLayers());
-          $("#layer_" + (parseInt(selectedLayer) + 1)).addClass("selected");
-        }
-      }
-    });
-
-    $(".down").click(function() {
-      if (getSelectedLayer() != null) {
-        var selectedLayer = $(".layers .selected").attr("id").substr(6);
-        if (jCollage.moveLayerDown(selectedLayer)) {
-          updateLayers(jCollage.getLayers());
-          $("#layer_" + (parseInt(selectedLayer) - 1)).addClass("selected");
-        }
+    $(".down a").live("click", function() {
+      var id = $(this).parent().parent().attr("id").substr(6);
+      if (jCollage.moveLayerDown(id)) {
+        updateLayers(jCollage.getLayers());
+        $("#layer_" + (parseInt(id) - 1)).addClass("selected");
       }
     });
 
