@@ -155,6 +155,13 @@ require(["jquery", "jcollage"], function ($, jc) {
       }
     });
 
+    $(".clear a").click(function () {
+      if (confirm("Confirm clear card?")) {
+        jCollage.clearLayers();
+        updateLayers(jCollage.getLayers());
+      }
+    });
+
     $(".search form").submit(function(){
       $(".search li").remove();
       $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+$(".search input[name=q]").val()+"&tagmode=any&format=json&jsoncallback=?",

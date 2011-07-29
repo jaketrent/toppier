@@ -45,7 +45,13 @@ h1, h2, h3, h4, h5, h6, ul, ol {
 ul, ol {
   list-style: none;
 }
-
+a {
+  cursor: pointer;
+}
+a:hover {
+  color: rgba(255, 204, 51, 1);
+  text-decoration: underline;
+}
 #card {
   float: left;
 }
@@ -153,6 +159,10 @@ ul, ol {
   display: block;
   float: left;
   margin-right: 5px;
+}
+.layer-ctrls a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 .layer-ctrls .remove a {
   padding-top: 0px;

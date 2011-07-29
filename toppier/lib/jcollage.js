@@ -96,7 +96,11 @@ function Collage(canvasId) {
 			redrawCanvas();
 		}
 	}
-	
+	this.clearLayers = function () {
+    layers = [];
+    redrawCanvas();
+  }
+
 	function redrawCanvas() {
 		if (backgroundImage != null) {
 			context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
