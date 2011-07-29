@@ -105,6 +105,7 @@ a:hover {
 .layers > ul {
   display: block;
   overflow:  auto;
+  min-height: 400px;
 }
 .layers .layer,
 .layers .background {
@@ -178,12 +179,28 @@ a:hover {
 .layer-ctrls .down a {
   background: url(img/down.png) 0 0 transparent no-repeat;
 }
-.toolkit ul li {
+.toolkit li {
   float: left;
   width: 190px;
   margin: 5px;
+  cursor: pointer;
 }
-.toolkit ul img {
+.toolkit li:hover,
+.toolkit.sm li:hover {
+  margin: 3px;
+  border: 2px solid orange;
+  background: rgba(255, 204, 51, .3);
+}
+.toolkit img {
   max-width: 190px;
   max-height: 190px;
+}
+.toolkit.sm li {
+  float: left;
+  width: 90px;
+  margin: 5px;
+}
+.toolkit.sm img {
+  max-height: 90px;
+  max-width: 90px;
 }

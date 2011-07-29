@@ -143,7 +143,7 @@ require(["jquery", "jcollage"], function ($, jc) {
       var id = $(this).parent().parent().parent().attr("id").substr(6);
       if (jCollage.moveLayerUp(id)) {
         updateLayers(jCollage.getLayers());
-        $("#layer_" + (parseInt(id) + 1)).addClass("selected");
+        $("#layer_" + (parseInt(id) + 1)).click();
       }
     });
 
@@ -151,15 +151,13 @@ require(["jquery", "jcollage"], function ($, jc) {
       var id = $(this).parent().parent().parent().attr("id").substr(6);
       if (jCollage.moveLayerDown(id)) {
         updateLayers(jCollage.getLayers());
-        $("#layer_" + (parseInt(id) - 1)).addClass("selected");
+        $("#layer_" + (parseInt(id) - 1)).click();
       }
     });
 
     $(".clear a").click(function () {
-      if (confirm("Confirm clear card?")) {
-        jCollage.clearLayers();
-        updateLayers(jCollage.getLayers());
-      }
+      jCollage.clearLayers();
+      updateLayers(jCollage.getLayers());
     });
 
     $(".search form").submit(function(){
