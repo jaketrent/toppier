@@ -101,7 +101,8 @@ ul, ol {
   display: block;
   overflow:  auto;
 }
-.layers > ul li {
+.layers .layer,
+.layers .background {
   display: block;
   overflow: auto;
   margin: 2px;
@@ -140,6 +141,33 @@ ul, ol {
   position: absolute;
   top: 22px;
   right: 30px;
+  overflow: auto;
+}
+.layer-ctrls li {
+  display: inline-block;
+}
+.layer-ctrls a {
+  width: 16px;
+  padding-top: 16px;
+  height: 0px;
+  overflow: hidden;
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+.layer-ctrls .remove a {
+  padding-top: 0px;
+  height: 16px;
+  font-weight: bold;
+  line-height: 16px;
+  font-size: 16px;
+  margin-right: 0;
+}
+.layer-ctrls .up a {
+  background: url(img/up.png) 0 0 transparent no-repeat;
+}
+.layer-ctrls .down a {
+  background: url(img/down.png) 0 0 transparent no-repeat;
 }
 .search ul li {
   float: left;
@@ -149,98 +177,4 @@ ul, ol {
 .search ul img {
   max-width: 190px;
   max-height: 190px;
-}
-
-.layer-ctrls a:link,
-.layer-ctrls a:visited {
-  border-bottom: 1px solid #c55500;
-  color: #c55500;
-  text-decoration: none;
-}
-
-.layer-ctrls a:visited {
-  border-bottom: 1px solid #730800;
-  color: #730800;
-}
-
-.layer-ctrls a:hover,
-.layer-ctrls a:focus,
-.layer-ctrls a:active {
-  border: 0;
-  color: #fff;
-  background: #c55500;
-}
-
-.arrow-alt a:before {
-    left:8px;
-    border-width:7px 0 7px 8px;
-    border-style:solid;
-    border-color:transparent #c55500;
-    margin-top:-7px;
-    background:transparent;
-}
-
-.arrow-alt a:after {
-    left:0;
-    width:8px;
-    height:6px;
-    margin-top:-3px;
-    background:#c55500;
-}
-
-.arrow-alt a:hover:before,
-.arrow-alt a:focus:before,
-.arrow-alt a:active:before {
-    border-color:transparent #730800;
-    background:transparent;
-}
-
-.arrow-alt a:hover:after,
-.arrow-alt a:focus:after,
-.arrow-alt a:active:after {
-    background:#730800;
-}
-
-.arrow-alt.back a:before {
-    left:0;
-    border-width:7px 8px 7px 0;
-}
-
-.arrow-alt.back a:after {
-    left:8px;
-}
-
-.arrow-alt.up a:before,
-.arrow-alt.down a:before {
-    left:1px;
-    margin-top:-8px;
-    border-width:0 7px 8px;
-    border-color:#c55500 transparent;
-}
-
-.arrow-alt.up a:after,
-.arrow-alt.down a:after {
-    left:5px;
-    width:6px;
-    height:8px;
-    margin-top:0;
-}
-
-.arrow-alt.down a:before {
-    left:1px;
-    margin-top:0;
-    border-width:8px 7px 0;
-}
-
-.arrow-alt.down a:after {
-    margin-top:-8px;
-}
-
-.arrow-alt.up a:hover:before,
-.arrow-alt.up a:focus:before,
-.arrow-alt.up a:active:before,
-.arrow-alt.down a:hover:before,
-.arrow-alt.down a:focus:before,
-.arrow-alt.down a:active:before {
-    border-color:#730800 transparent;
 }
