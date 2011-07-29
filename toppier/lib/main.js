@@ -60,7 +60,7 @@ require(["jquery", "jcollage"], function ($, jc) {
     jCollage = new Collage("#card");
     jCollage.setBackgroundColor("#fff");
 
-    $(".search img").live("click", function() {
+    $(".toolkit img").live("click", function() {
       jCollage.addLayer($(this).context).setTitle($(this).attr("title"));
       updateLayers(jCollage.getLayers());
       $("#layer_" + (jCollage.getLayers().length - 1)).addClass("selected");

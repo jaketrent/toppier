@@ -178,12 +178,12 @@ a:hover {
 .layer-ctrls .down a {
   background: url(img/down.png) 0 0 transparent no-repeat;
 }
-.search ul li {
+.toolkit ul li {
   float: left;
   width: 190px;
   margin: 5px;
 }
-.search ul img {
+.toolkit ul img {
   max-width: 190px;
   max-height: 190px;
 }
