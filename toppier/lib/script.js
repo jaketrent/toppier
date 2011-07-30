@@ -1,6 +1,6 @@
 var jCollage = null;
 $(document).ready(function() {
-	jCollage = new Collage("#collage");
+	jCollage = new Collage("#card");
 	jCollage.setBackgroundColor("#fff");
 	
 	$(".search img").live("click", function() {
@@ -8,6 +8,12 @@ $(document).ready(function() {
 		updateLayers(jCollage.getLayers());
 		$("#layer_" + (jCollage.getLayers().length - 1)).addClass("selected");
 	});
+
+
+    $(".toolkit h3").click(function () {
+      $(".toolkit ul").slideUp("fast");
+      $(this).next("ul").slideDown("fast");
+    });
 	
 	$(".layers .layer").live("click", function() {
 		$(".layers .layer").removeClass("selected");
@@ -94,7 +100,7 @@ $(document).ready(function() {
 			$.each(data.items, function(i,item) {
 				var img = $("<img/>").attr("src", item.media.m);
 				img.attr("title", item.title);
-				$("<li></li>").append(img).appendTo(".search ul");
+				$("<li></li>").append(img).appendTo(".search");
 				if ( i == 8 ) return false;
 			});
 		});

@@ -7,7 +7,6 @@
          url('type/Enigma__2-webfont.svg#EnigmaticRegular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 @font-face {
   font-family: 'HeroRegular';
@@ -37,6 +36,8 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)) fixed; /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%) fixed; /* Chrome10+,Safari5.1+ */
   background: linear-gradient(top, #45484d 0%,#000000 100%) fixed; /* W3C */
+  padding: 0;
+  margin: 0;
 }
 h1, h2, h3, h4, h5, h6, ul, ol {
   margin: 0;
@@ -54,6 +55,7 @@ a:hover {
 }
 #card {
   float: left;
+  cursor: pointer;
 }
 .box {
   width: 400px;
@@ -209,4 +211,16 @@ a:hover {
 .toolkit img {
   max-width: 90px;
   max-height: 90px;
+}
+
+.octagon {
+  height: 100%;
+  width: 100%;
+  background: green;
+  display: none;
+  position: absolute;
+}
+.octagon canvas {
+  height: 100%;
+  width: 100%;
 }

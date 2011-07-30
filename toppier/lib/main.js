@@ -1,18 +1,4 @@
-require(["jquery", "jcollage"], function ($, jc) {
-
-  var libs = [
-    {
-      title: "Lost Props",
-      root: "media/img/lostprops/",
-      imgs: [
-        "GhostTrap_256x256.png",
-        "jason_icon_256x256.png",
-        "Kajdax_ThermalDetonator_256x256.png",
-        "Lawgiver_256x256.png"
-      ]
-
-    }
-  ];
+require(["jquery", "jcollage", "canvas2image", "base64"], function ($, jc) {
 
   var jCollage = null;
 
@@ -179,8 +165,9 @@ require(["jquery", "jcollage"], function ($, jc) {
       $(this).next("ul").slideDown("fast");
     });
 
-    $("#add").click(function () {
-
+    $(".export").click(function () {
+      var hero = Canvas2Image.saveAsPNG(jCollage.getCanvas(), true);
+      $(".octagon").append("<img class='hero' src='" + hero.src + "' />").show();
     });
 
   });
