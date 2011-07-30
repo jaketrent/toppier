@@ -179,28 +179,34 @@ a:hover {
 .layer-ctrls .down a {
   background: url(img/down.png) 0 0 transparent no-repeat;
 }
+.toolkit h3  {
+  clear: both;
+  font: 14px 'EnigmaticRegular', Arial, sans-serif;
+  cursor: pointer;
+  background: rgba(51, 51, 51, .5);
+  border: #666666 1px solid;
+  padding: 2px 0 0 5px;
+}
+.toolkit h3:hover {
+  border: 1px solid orange;
+  background: rgba(255, 204, 51, .3);
+}
+.toolkit ul {
+  display: none;
+}
 .toolkit li {
   float: left;
-  width: 190px;
+  width: 90px;
   margin: 5px;
   cursor: pointer;
+  text-align: center; 
 }
-.toolkit li:hover,
-.toolkit.sm li:hover {
+.toolkit li:hover {
   margin: 3px;
   border: 2px solid orange;
   background: rgba(255, 204, 51, .3);
 }
 .toolkit img {
-  max-width: 190px;
-  max-height: 190px;
-}
-.toolkit.sm li {
-  float: left;
-  width: 90px;
-  margin: 5px;
-}
-.toolkit.sm img {
-  max-height: 90px;
   max-width: 90px;
+  max-height: 90px;
 }

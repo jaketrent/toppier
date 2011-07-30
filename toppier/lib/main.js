@@ -167,11 +167,16 @@ require(["jquery", "jcollage"], function ($, jc) {
         $.each(data.items, function(i,item) {
           var img = $("<img/>").attr("src", item.media.m);
           img.attr("title", item.title);
-          $("<li></li>").append(img).appendTo(".search ul");
+          $("<li></li>").append(img).appendTo(".search");
           if ( i == 8 ) return false;
         });
       });
       return false;
+    });
+
+    $(".toolkit h3").click(function () {
+      $(".toolkit ul").slideUp("fast");
+      $(this).next("ul").slideDown("fast");
     });
 
     $("#add").click(function () {
