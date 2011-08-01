@@ -249,9 +249,15 @@ a:hover {
   margin: 0;
   padding: 0;
 }
-.octagon .contender {
-  position: absolute;
+.octagon.ring  {
+  width: 800px;
+  position: relative;
 }
+.octagon .contender {
+}
+.octagon .hero {
+}
+
 #octagonbg {
   -webkit-box-shadow: 3px 3px 16px 4px #0d0d0d;
   -moz-box-shadow: 3px 3px 16px 4px #0d0d0d;
