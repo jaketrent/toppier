@@ -118,6 +118,9 @@ a:hover {
   cursor: pointer;
   position: relative;
 }
+.layers .background {
+  display: none;
+}
 .layers .layer.selected {
   background: rgba(255, 204, 51, .5);
   border: 1px solid rgba(255, 204, 51, 1);
@@ -213,14 +216,39 @@ a:hover {
   max-height: 90px;
 }
 
+.powerup {
+  padding: 10px;
+}
+.abilities {
+  margin: 10px;
+}
+.health {
+  float: left;
+}
+.attack {
+  float: right;
+}
+.ability {
+  clear: both;
+  margin: 10px;
+}
+.name {
+  margin: 30px 10px;
+}
+
 .octagon {
+  position: absolute;
   height: 100%;
   width: 100%;
-  background: green;
+  overflow: hidden;
   display: none;
-  position: absolute;
 }
 .octagon canvas {
   height: 100%;
   width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.octagon .contender {
+  position: absolute;
 }

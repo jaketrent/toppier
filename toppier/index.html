@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Toppier</title>
   <link rel="stylesheet" href="media/style.css" />
+  <link rel="stylesheet" href="media/jquery-ui-1.8.14.custom.css" />
   <script src="lib/require.js" data-main="lib/main.js"></script>
   <!--<script src="lib/jquery.js" ></script>-->
   <!--<script src="lib/jcollage.js" ></script>-->
@@ -160,13 +161,33 @@
       </ul>
 		</aside>
     <aside class="box">
+      <h2>Power Up</h2>
+      <div class="abilities health">
+        Health:
+        <span>10</span>
+      </div>
+      <div class="abilities attack">
+        Attack:
+        <span>10</span>
+      </div>
+      <div class="ability"></div>
+      <div class="name">
+        Illustrious Name
+        <input type="text" />
+      </div>
+    </aside>
+    <aside class="box">
       <h2>Fight</h2>
-      <input type="button" value="Enter the Octagon" class="export"/>
+      <input type="button" value="Enter the Octagon" class="fight"/>
       <div class="display">
-        
+
       </div>
     </aside>
   <div class="octagon">
+    <canvas id="octagonbg" width="800" height="500"></canvas>
+  </div>
+  <div class="octagon ring">
+    
   </div>
 </body>
 </html>

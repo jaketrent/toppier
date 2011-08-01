@@ -1,4 +1,4 @@
-require(["jquery", "jcollage", "canvas2image", "base64"], function ($, jc) {
+require(["jquery", "jquery-ui-1.8.14.custom.min", "jcollage", "canvas2image", "base64", "anibg"], function ($) {
 
   var jCollage = null;
 
@@ -165,9 +165,40 @@ require(["jquery", "jcollage", "canvas2image", "base64"], function ($, jc) {
       $(this).next("ul").slideDown("fast");
     });
 
-    $(".export").click(function () {
+    $(".fight").click(function () {
       var hero = Canvas2Image.saveAsPNG(jCollage.getCanvas(), true);
-      $(".octagon").append("<img class='hero' src='" + hero.src + "' />").show();
+      $(".octagon").show();
+      $(".octagon.ring").html("<img class='contender hero' src='" + hero.src + "' />");
+      new AniBg("octagonbg", "../media/img/stars.png").start();
+    });
+
+    $(".ability").slider({
+			range: "max",
+			min: -10,
+			max: 10,
+			value: 0,
+			slide: function(event, ui) {
+        var $health = $(".health span");
+        var $attack = $(".attack span");
+        var health = 10;
+        var attack = 10;
+        if (ui.value === 0) {
+          $health.html(health);
+          $attack.html(attack);
+        } else {
+          var healthDiff = ui.value <  0 ? Math.abs(ui.value) : ui.value * -1;
+          health = 10 + healthDiff;
+          $health.html(health);
+          var attackDiff = ui.value;
+          attack = 10 + attackDiff;
+          $attack.html(attack);
+        }
+        jCollage.setAbilities(health, attack);
+			}
+		});
+
+    $(".name input").focusout(function () {
+      jCollage.setTitle($(this).val());
     });
 
   });

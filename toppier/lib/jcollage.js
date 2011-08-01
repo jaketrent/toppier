@@ -29,6 +29,11 @@ function Collage(canvasId) {
 	canvasOffsetY = $(canvasId).offset().top;
 	
 	var context = canvas.getContext('2d');
+
+  var title = null;
+  var health = null;
+  var attack = null;
+
 	var layers = new Array();
 	
 	canvas.addEventListener('mousemove', mouseMoveEvent, false);
@@ -100,7 +105,16 @@ function Collage(canvasId) {
     layers = [];
     redrawCanvas();
   }
-
+  this.setTitle = function (t) {
+    title = t;
+    redrawCanvas();
+  };
+  this.setAbilities = function (h, a) {
+    health = h;
+    attack = a;
+    redrawCanvas();
+  };
+  
 	function redrawCanvas() {
 		if (backgroundImage != null) {
 			context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
@@ -110,6 +124,7 @@ function Collage(canvasId) {
 		} else {
 			context.clearRect(0, 0, canvas.width, canvas.height);
 		}
+
 		for (i in layers) {
 			if (layers[i].isVisible()) {
 				context.save();
@@ -132,6 +147,20 @@ function Collage(canvasId) {
 				context.restore();
 			}
 		}
+
+    if (title != null) {
+      context.font = "bold 16px sans-serif";
+      context.fillStyle = "#000000";
+      context.textAlign = "center";
+      context.fillText(title, canvas.width / 2, 347);
+    }
+    if (health != null && attack != null) {
+      context.font = "bold 20px sans-serif";
+      context.fillStyle = "#ffffff";
+      context.textAlign = "left";
+      context.fillText(health, 91, 420);
+      context.fillText(attack, 267, 420);
+    }
 	}
 	
 	function drawMarker(layer) {
