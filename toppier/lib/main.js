@@ -167,9 +167,10 @@ require(["jquery", "jquery-ui-1.8.14.custom.min", "jcollage", "canvas2image", "b
 
     $(".fight").click(function () {
       var hero = Canvas2Image.saveAsPNG(jCollage.getCanvas(), true);
+      $(".create").hide();
       $(".octagon").show();
       $(".octagon.ring").html("<img class='contender hero' src='" + hero.src + "' />");
-      new AniBg("octagonbg", "../media/img/stars.png").start();
+//      new AniBg("octagonbg", "../media/img/blank.png").start();
     });
 
     $(".ability").slider({

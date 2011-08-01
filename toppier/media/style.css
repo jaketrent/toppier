@@ -252,3 +252,8 @@ a:hover {
 .octagon .contender {
   position: absolute;
 }
+#octagonbg {
+  -webkit-box-shadow: 3px 3px 16px 4px #0d0d0d;
+  -moz-box-shadow: 3px 3px 16px 4px #0d0d0d;
+  box-shadow: 3px 3px 16px 4px #0d0d0d;
+}
