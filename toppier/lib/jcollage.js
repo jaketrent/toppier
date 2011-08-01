@@ -45,7 +45,7 @@ function Collage(canvasId) {
 	this.addLayer = function(img) {
 		var layer = new Layer(img);
 		layers.push(layer);
-		
+
 		redrawCanvas();
 		return layer;
 	}
@@ -292,9 +292,9 @@ function Layer(img) {
 	this.img = img;	
 	this.offsetX = 0;
 	this.offsetY = 0;
-	this.width = img.naturalHeight;
+	this.width = img.naturalWidth;
 	this.height = img.naturalHeight;
-	
+
 	this.canvas = document.createElement('canvas');
 	this.canvas.width = this.width;
 	this.canvas.height = this.height;
