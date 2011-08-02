@@ -36,7 +36,7 @@ body {
   height: 300px;
   width: 1200px;
   position: absolute;
-  top: 339px;
+  top: 372px;
   left: 0;
   z-index: 3;
 }
@@ -49,6 +49,9 @@ body {
   position: absolute;
   bottom: 0;
   text-align: center;
+  /*max-height: 500px;
+  min-height: 400px;
+  max-width: 400px;*/
 }
 .hero {
   top: 0;
@@ -240,7 +243,7 @@ body {
 }
 .btns {
   position: absolute;
-  top: 591px;
+  top: 624px;
   z-index: 4;
   width: 100%;
   text-align: center;
