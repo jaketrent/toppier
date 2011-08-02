@@ -43,8 +43,12 @@ body {
 .card {
   height: 500px;
   width: 400px;
-  background: #777;
   position: absolute;
+}
+.card img {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
 }
 .hero {
   top: 0;
