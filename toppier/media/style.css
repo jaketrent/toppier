@@ -53,6 +53,11 @@ a:hover {
   color: rgba(255, 204, 51, 1);
   text-decoration: underline;
 }
+.container {
+  margin: 0 auto;
+  width: 1260px;
+  margin-top: 20px;
+}
 #card {
   float: left;
   cursor: pointer;
@@ -234,32 +239,4 @@ a:hover {
 }
 .name {
   margin: 30px 10px;
-}
-
-.octagon {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  display: none;
-}
-.octagon canvas {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-.octagon.ring  {
-  width: 800px;
-  position: relative;
-}
-.octagon .contender {
-}
-.octagon .hero {
-}
-
-#octagonbg {
-  -webkit-box-shadow: 3px 3px 16px 4px #0d0d0d;
-  -moz-box-shadow: 3px 3px 16px 4px #0d0d0d;
-  box-shadow: 3px 3px 16px 4px #0d0d0d;
 }
