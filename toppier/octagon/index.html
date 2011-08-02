@@ -8,6 +8,15 @@
   <script>
     $(function () {
 
+      var enemies = [
+        {
+          img: "",
+          name: "",
+          health: "",
+          attack: ""
+        }
+      ];
+
       function readyToFight(offender) {
         var $offender = $("." + offender);
         $offender
@@ -103,12 +112,35 @@
         $(".hearts-" + player).html(html);
       }
 
+      function loadHero() {
+        $(".hero").html(
+          $("<img />")
+            .attr("src", localStorage['hero-src'])
+            .attr("data-name", localStorage['hero-name'])
+            .attr("data-health", localStorage['hero-health'])
+            .attr("data-attack", localStorage['hero-attack'])
+        );
+      }
+
+      function loadEnemy() {
+        var enemy = enemies[randomFromTo(0, enemies.length - 1)];
+        $(".enemy").html(
+          $("<img />")
+            .attr("src", enemy.img)
+            .attr("data-name", enemy.name)
+            .attr("data-health", enemy.health)
+            .attr("data-attack", enemy.attack)
+        );
+      }
+
       $(".hero").addClass("entered-battle");
       $(".enemy").addClass("entered-battle");
 
       updateHearts("hero");
       updateHearts("enemy");
-
+      loadHero();
+      loadEnemy();
+      
       round = 0;
 
       $(".round-start").click(function () {
