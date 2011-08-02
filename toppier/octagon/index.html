@@ -12,18 +12,18 @@
         {
           img: "img/enemies/ie.png",
           name: "IE",
-          health: "10",
-          attack: "10"
+          health: "17",
+          attack: "3"
         },{
           img: "img/enemies/nacho.png",
           name: "The Luchadore",
-          health: "5",
-          attack: "15"
+          health: "8",
+          attack: "12"
         },{
           img: "img/enemies/eye.png",
           name: "Eye of Sorrow",
-          health: "11",
-          attack: "15"
+          health: "10",
+          attack: "10"
         }
       ];
 
@@ -54,7 +54,8 @@
               var defender = round % 2 === 0 ? "hero" : "enemy";
               attack(offender, defender);
               if (isDefeated(defender)) {
-                marqueeMsg(offender + " wins!");
+                var name = $("." + offender + " img").attr("data-name");
+                marqueeMsg(name + " wins!");
               } else {
                 if (round % 2 === 0) {
                   readyToFight(defender);
@@ -98,9 +99,9 @@
       }
 
       function attack(offender, defender) {
-        var maxAttack = parseInt($("." + offender).attr("data-attack"));
+        var maxAttack = parseInt($("." + offender + " img").attr("data-attack"));
         var offenderAttack = attackWithChance(maxAttack);
-        var $defender = $("." + defender);
+        var $defender = $("." + defender + " img");
         var defenderHealth = parseInt($defender.attr("data-health"));
         var hitDefenderHealth = defenderHealth - offenderAttack;
         $defender.attr("data-health", hitDefenderHealth);
@@ -110,11 +111,11 @@
       }
 
       function isDefeated(player) {
-        return parseInt($("." + player).attr("data-health")) <= 0;
+        return parseInt($("." + player + " img").attr("data-health")) <= 0;
       }
 
       function updateHearts(player) {
-        var health = parseInt($("." + player).attr("data-health"));
+        var health = parseInt($("." + player + " img").attr("data-health"));
         var html = "";
         for (var i = 0; i < health; ++i) {
           html += "<img src='img/heart.png' />";
@@ -146,11 +147,11 @@
       $(".hero").addClass("entered-battle");
       $(".enemy").addClass("entered-battle");
 
-      updateHearts("hero");
-      updateHearts("enemy");
       loadHero();
       loadEnemy();
-      
+      updateHearts("hero");
+      updateHearts("enemy");
+
       round = 0;
 
       $(".round-start").click(function () {
@@ -176,10 +177,10 @@
   </div>
   <div class="cnt mat"></div>
   <div class="cnt ring">
-    <div class="card hero" data-health="10" data-attack="10">
+    <div class="card hero">
 
     </div>
-    <div class="card enemy" data-health="10" data-attack="10">
+    <div class="card enemy">
       
     </div>
   </div>
