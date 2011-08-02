@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Keyframe Ani</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="../lib/jquery.js"></script>
+  <script>
+    $(function () {
+
+      function readyToFight(offender) {
+        var $offender = $("." + offender);
+        $offender
+          .removeClass("entered-battle")
+          .addClass("ready-to-fight")
+          .addClass("ready-to-fight-" + offender);
+        setTimeout(function () {
+          $offender
+            .addClass("fighting");
+          fight(offender);
+        }, 1200);
+      }
+
+      function fight(offender) {
+        var $offender = $('.' + offender);
+        $offender.addClass("fighting").bind('webkitAnimationEnd', function(event) {
+          switch (event.originalEvent.animationName) {
+            case "bob-weave":
+              $offender
+                .unbind("webkitAnimationEnd")
+                .removeClass("fighting")
+                .removeClass("ready-to-fight")
+                .removeClass("ready-to-fight-" + offender);
+
+              var defender = round % 2 === 0 ? "hero" : "enemy";
+              attack(offender, defender);
+              if (isDefeated(defender)) {
+                marqueeMsg(offender + " wins!");
+              } else {
+                if (round % 2 === 0) {
+                  readyToFight(defender);
+                } else {
+                  updateRoundBtn();
+                }
+                ++round;
+              }
+              break;
+          }
+        });
+      }
+
+      function marqueeMsg(txt, delay) {
+        $(".marquee").html(txt).fadeIn(function () {
+          setTimeout(function () {
+            $(".marquee").fadeOut();
+          }, delay || 1000);
+        })
+      }
+
+      function updateRoundBtn() {
+        $(".round-start").html("Start Round " + (Math.ceil(round / 2.0) + 1)).fadeIn();
+      }
+
+      function minAttack(maxAttack) {
+        return Math.floor(maxAttack / 2.0)
+      }
+
+      function randomFromTo(from, to) {
+        return Math.floor(Math.random() * (to - from + 1) + from);
+      }
+
+      function attackWithChance(maxAttack) {
+        var missed = randomFromTo(1, 5) === 1
+        var attack = 0;
+        if (!missed) {
+          attack = randomFromTo(minAttack(maxAttack), maxAttack);
+        }
+        return attack;
+      }
+
+      function attack(offender, defender) {
+        var maxAttack = parseInt($("." + offender).attr("data-attack"));
+        var offenderAttack = attackWithChance(maxAttack);
+        var $defender = $("." + defender);
+        var defenderHealth = parseInt($defender.attr("data-health"));
+        var hitDefenderHealth = defenderHealth - offenderAttack;
+        $defender.attr("data-health", hitDefenderHealth);
+        updateHearts(defender);
+        console.log(offender + " hit " + defender + " with " + offenderAttack + " (out of " + maxAttack + " max); " +
+          defender + " now at " + hitDefenderHealth + " health");
+      }
+
+      function isDefeated(player) {
+        return parseInt($("." + player).attr("data-health")) <= 0;
+      }
+
+      function updateHearts(player) {
+        var health = parseInt($("." + player).attr("data-health"));
+        var html = "";
+        for (var i = 0; i < health; ++i) {
+          html += "<img src='img/heart.png' />";
+        }
+        $(".hearts-" + player).html(html);
+      }
+
+      $(".hero").addClass("entered-battle");
+      $(".enemy").addClass("entered-battle");
+
+      updateHearts("hero");
+      updateHearts("enemy");
+
+      round = 0;
+
+      $(".round-start").click(function () {
+        marqueeMsg("Fight!");
+        $(this).fadeOut();
+        var offender = round % 2 === 0 ? "enemy" : "hero";
+        readyToFight(offender);
+      });
+
+      $(".cnt").each(function () {
+        $(this).css("left", ($(window).width() / 2.0) - $(this).width() / 2.0);
+      });
+
+
+    });
+  </script>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="cnt status">
+    <div class="hearts hearts-hero"></div>
+    <div class="hearts hearts-enemy"></div>
+  </div>
+  <div class="cnt mat"></div>
+  <div class="cnt ring">
+    <div class="card hero" data-health="10" data-attack="10">
+
+    </div>
+    <div class="card enemy" data-health="10" data-attack="10">
+      
+    </div>
+  </div>
+  <div class="cnt btns">
+    <div class="btn large green round-start">Start Round 1</div>
+  </div>
+  <div class="cnt ropes"></div>
+  <div class="cnt marquee">K . O .</div>
+</body>
+</html>

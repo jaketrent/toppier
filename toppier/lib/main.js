@@ -1,4 +1,4 @@
-require(["jquery", "jquery-ui-1.8.14.custom.min", "jcollage", "canvas2image", "base64", "anibg"], function ($) {
+require(["jquery", "jquery-ui-1.8.14.custom.min", "jcollage", "canvas2image", "base64"], function ($) {
 
   var jCollage = null;
 
@@ -167,22 +167,11 @@ require(["jquery", "jquery-ui-1.8.14.custom.min", "jcollage", "canvas2image", "b
 
     $(".fight").click(function () {
       var hero = Canvas2Image.saveAsPNG(jCollage.getCanvas(), true);
-      $(".create").hide();
-      $(".octagon").show();
-      $(".octagon.ring")
-        .html("<img class='contender hero' " +
-          "src='" + hero.src + "' " +
-          "data-health='" + $(".health span").html() +  " ' " +
-          "data-attack='" + $(".attack span").html() + " ' " +
-          " />" +
-        "<img class='contender enemy' " +
-          "src='/media/img/opponents/Tentacle.png' " +
-          "data-health='" + $(".health span").html() +  " ' " +
-          "data-attack='" + $(".attack span").html() + " ' " +
-          " />")
-        .css("left", ($(window).width() / 2.0) - ($(".octagon.ring").width() / 2.0));
-
-//      new AniBg("octagonbg", "../media/img/blank.png").start();
+      localStorage['hero-src'] = hero.src;
+      localStorage['hero-name'] = $(".name input").val();
+      localStorage['hero-health'] = $(".health span").html();
+      localStorage['hero-attack'] = $(".attack span").html();
+      window.location = "/octagon/";
     });
 
     $(".ability").slider({
