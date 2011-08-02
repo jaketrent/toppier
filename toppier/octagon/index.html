@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Keyframe Ani</title>
+  <title>The Octagon</title>
   <link rel="stylesheet" href="style.css" />
   <script src="../lib/jquery.js"></script>
   <script>
@@ -41,6 +41,7 @@
       }
 
       function fight(offender) {
+        playAudio("fight");
         var $offender = $('.' + offender);
         $offender.addClass("fighting").bind('webkitAnimationEnd', function(event) {
           switch (event.originalEvent.animationName) {
@@ -55,7 +56,8 @@
               attack(offender, defender);
               if (isDefeated(defender)) {
                 var name = $("." + offender + " img").attr("data-name");
-                marqueeMsg(name + " wins!");
+                marqueeMsg(name + " wins!", 10000);
+                playAudio("cheer");
               } else {
                 if (round % 2 === 0) {
                   readyToFight(defender);
@@ -96,6 +98,11 @@
           attack = randomFromTo(minAttack(maxAttack), maxAttack);
         }
         return attack;
+      }
+
+      function playAudio(topic) {
+        var audio = new Audio("audio/"+topic+".wav");
+        audio.play();
       }
 
       function attack(offender, defender) {
@@ -155,6 +162,7 @@
       round = 0;
 
       $(".round-start").click(function () {
+        playAudio("bell");
         marqueeMsg("Fight!");
         $(this).fadeOut();
         var offender = round % 2 === 0 ? "enemy" : "hero";
