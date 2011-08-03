@@ -1,6 +1,12 @@
 Features
 - Create a canvas of images
 
+Fix Roadmap
+- Serious rework of js - cleanup unused, refactor, just clean it up, baby
+- Combining media from creator & octagon - img, type
+- Title for creator
+- Proper licensing check on assets
+
 Feature Roadmap
 - More complete asset toolkit
 - Less clutter toolkit UI
@@ -10,3 +16,5 @@ Feature Roadmap
 - Drag n drop layers
 - Active layer arrow key positioning
 - Fit to frame
+- Image service integration - google img, iconfinder, flicker cc
+
